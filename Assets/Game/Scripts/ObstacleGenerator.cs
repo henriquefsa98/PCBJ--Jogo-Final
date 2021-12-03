@@ -8,11 +8,14 @@ public class ObstacleGenerator : MonoBehaviour
 
     public List<Obstacle> obstaclesToSpawn;
 
+    public GameConfiguration config;
+
     void Start()
     {
         InitObstacles();
 
-        
+        float camWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        gameObject.transform.localPosition = new Vector3 ( camWidth, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);        
     }
 
     public void GenerateObstacles()
@@ -24,6 +27,15 @@ public class ObstacleGenerator : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    public void ResetGenerator()
+    {
+        foreach (Obstacle obstacle in obstaclesToSpawn)
+        {
+            obstacle.gameObject.SetActive(false);
+        }
+    }
+
     void InitObstacles()
     {
         int index = 0;
@@ -44,7 +56,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     IEnumerator SpawnRandomObstacles()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f, 5f));
+        yield return new WaitForSeconds(Random.Range(config.minRangeObstacleGenerator, config.maxRangeObstacleGenerator));
 
         int index = Random.Range(0, obstaclesToSpawn.Count);
 

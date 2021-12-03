@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116c0d68f011a754a93c53c5f3b5e033, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
+  speed: 0
+  minRangeObstacleGenerator: 0.75
+  maxRangeObstacleGenerator: 2

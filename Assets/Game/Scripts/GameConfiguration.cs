@@ -6,4 +6,6 @@ using UnityEngine;
 public class GameConfiguration : ScriptableObject
 {
     public float speed = 4f;
+    public float minRangeObstacleGenerator;
+    public float maxRangeObstacleGenerator;
 }
