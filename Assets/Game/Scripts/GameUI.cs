@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
-    private Animator animator;
-    private CanvasGroup cv;
+    public Animator animator;
+    public CanvasGroup cv;
 
     private void /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -13,18 +13,20 @@ public class GameUI : MonoBehaviour
     /// </summary>
     Start()
     {
-        animator = GetComponent<Animator>();
-        cv = GetComponent<CanvasGroup>();
+        //animator = GetComponent<Animator>();
+        //cv = GetComponent<CanvasGroup>();
 
-        cv.interactable = false;
-        cv.blocksRaycasts = false;
+        //cv.interactable = false;
+        //cv.blocksRaycasts = false;
     }
     public void Show()
     {
-        animator.Play("FadeInUI");
+        
 
         cv.interactable = true;
         cv.blocksRaycasts = true;
+        animator.Play("FadeInUI");
+        Debug.Log("Ve se chegou ate aki jao");
     }
 
     public void Hide()

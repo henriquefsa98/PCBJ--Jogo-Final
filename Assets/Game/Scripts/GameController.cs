@@ -24,13 +24,17 @@ public class GameController : MonoBehaviour
     {
         isGamingRunning = false;
 
+        gameStartUI.gameObject.SetActive(true);
+
+        gameOverUI.gameObject.SetActive(false);
+
         gameStartUI.Show();
 
         config.speed = 0f;
 
     }
 
-    private void Update()
+    private void FixedUpdate() // é chamado 60 vezes per sec
     {
         scoreLabel.text = score.ToString("000000.##");
         
@@ -65,6 +69,9 @@ public class GameController : MonoBehaviour
         generator.GenerateObstacles();
         score = 0;
         gameStartUI.Hide();
+
+        gameStartUI.gameObject.SetActive(false);
+
         player.SetActive();
         
     }
@@ -76,12 +83,17 @@ public class GameController : MonoBehaviour
         config.speed = 0f;
         generator.StopGenerator();
 
+        gameOverUI.gameObject.SetActive(true);
+
         gameOverUI.Show();
     }
 
     public void RestartGame()
     {
         gameOverUI.Hide();
+
+        gameOverUI.gameObject.SetActive(false);
+
         generator.ResetGenerator();
         GameStart();
     }

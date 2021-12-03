@@ -278,6 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5655c64b87c894892f906507192743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 31142579}
+  cv: {fileID: 31142578}
 --- !u!225 &31142578
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -300,7 +302,7 @@ Animator:
   m_GameObject: {fileID: 31142575}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c5800bab46b09944d8b987605212b2f8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6851b6b57fb13fb45bdfcd7702858640, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -914,7 +916,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08731735, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -925,7 +927,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.4253652, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &751426798
 Animator:
@@ -2029,7 +2031,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1756151841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,8 +2079,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1843444508}
-  - component: {fileID: 1843444511}
   - component: {fileID: 1843444510}
+  - component: {fileID: 1843444511}
   - component: {fileID: 1843444509}
   m_Layer: 5
   m_Name: GameStartUI
@@ -2120,6 +2122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5655c64b87c894892f906507192743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1843444510}
+  cv: {fileID: 1843444511}
 --- !u!95 &1843444510
 Animator:
   serializedVersion: 3
