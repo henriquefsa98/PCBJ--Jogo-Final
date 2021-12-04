@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
-    public Animator animator;
-    public CanvasGroup cv;
+    public Animator animator; // defino a classe animator como public
+    public CanvasGroup cv; // defino a classe cv como public
 
     private void /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -23,17 +23,17 @@ public class GameUI : MonoBehaviour
     {
         
 
-        cv.interactable = true;
-        cv.blocksRaycasts = true;
-        animator.Play("FadeInUI");
-        Debug.Log("Ve se chegou ate aki jao");
+        cv.interactable = true; // jogo para verdadeiro
+        cv.blocksRaycasts = true; // jogo para verdadeiro
+        animator.Play("FadeInUI"); // animação do jogador iniciada 
+        Debug.Log("Ve se chegou ate aki jao"); // confiro se chegou 
     }
 
     public void Hide()
     {
-        animator.Play("FadeOutUI");
+        animator.Play("FadeOutUI");// animação do jogador desapareceu
 
-        cv.interactable = false;
-        cv.blocksRaycasts = false;
+        cv.interactable = false; // jogo para falso
+        cv.blocksRaycasts = false; // jogo para falso
     }
 }
