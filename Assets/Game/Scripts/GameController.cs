@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     private bool isGamingRunning;
@@ -97,4 +97,22 @@ public class GameController : MonoBehaviour
         generator.ResetGenerator();
         GameStart();
     }
+
+    public void CreditScene()
+    {
+
+        SceneManager.LoadScene("Credits");
+
+    }
+
+    public void ExitGame()
+    {
+
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+
+    }
+
 }
