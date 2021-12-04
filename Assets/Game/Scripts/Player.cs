@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))// se apertar o espaço
         {
             Jump(); // o dinossauro pula
-            jumping.Play(); // o dinossauro pula
         }
     }
 
@@ -61,7 +60,8 @@ public class Player : MonoBehaviour
         if (!isEnabled) return; // se tiver desligado volto ao começo do codigo
         if (canJump) // se pular 
         {
-            canJump = false; // jogo minha variavel para 0 
+            canJump = false; // jogo minha variavel para 0
+            jumping.Play(); // toca a musica de pulo
 
             if (transform.position.x < 0) // se a posição de x > 0
             {

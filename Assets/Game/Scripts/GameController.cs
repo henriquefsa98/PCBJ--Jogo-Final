@@ -35,8 +35,11 @@ public class GameController : MonoBehaviour
 
     private void FixedUpdate() // é chamado 60 vezes per sec
     {
-        scoreLabel.text = score.ToString("000000.##"); // inicio para 60
-        
+        if ( isGamingRunning == true)
+        {
+            scoreLabel.text = score.ToString("000000.##"); // inicio para 60
+        }       
+
         if (!isGamingRunning) return; //se meu jogo for  diferente do jogo começando
         score++; // incrimento meu score 
         CheckLevelUpdate();//inicio a função
@@ -99,7 +102,13 @@ public class GameController : MonoBehaviour
 
     public void CreditScene() // inicio a cena de credito
     {
+        isGamingRunning = false; //jogo para
 
+        config.speed = 0f; //velocidae jogada para 0
+        
+        gameOverUI.Hide(); // esconde gameOverUI
+        gameStartUI.Hide(); // esconde objeto
+                
         SceneManager.LoadScene("Credits"); // inicia os creditos 
 
     }

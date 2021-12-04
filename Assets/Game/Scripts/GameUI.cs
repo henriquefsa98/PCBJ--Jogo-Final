@@ -21,17 +21,14 @@ public class GameUI : MonoBehaviour
     }
     public void Show()
     {
-        
-
         cv.interactable = true; // jogo para verdadeiro
         cv.blocksRaycasts = true; // jogo para verdadeiro
         animator.Play("FadeInUI"); // animação do jogador iniciada 
-        Debug.Log("Ve se chegou ate aki jao"); // confiro se chegou 
     }
 
     public void Hide()
     {
-        animator.Play("FadeOutUI");// animação do jogador desapareceu
+        animator.Play("FadeOutUI"); // animação do jogador desapareceu
 
         cv.interactable = false; // jogo para falso
         cv.blocksRaycasts = false; // jogo para falso
