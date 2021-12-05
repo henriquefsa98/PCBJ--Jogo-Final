@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Resposavel pelo objeto player do jogo
+/// </summary>
 public class Player : MonoBehaviour
 {
     public UnityEvent onPlayerHitted;    // defino a classe  onPlayerHitted como public 
@@ -21,6 +24,10 @@ public class Player : MonoBehaviour
 
     public AudioSource jumping; // defino a classe audiosource como public 
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         plyRB = gameObject.GetComponent<Rigidbody2D>(); // habilito forças físicas a atuarem sobre plyRB
@@ -36,6 +43,9 @@ public class Player : MonoBehaviour
         jumping = GetComponent<AudioSource>(); // defino um som para minha variavel de pulo
     }
 
+    /// <summary>
+    /// Responsavel por ativar a animaçao e o jump do objeto jogador
+    /// </summary>
     public void SetActive()
     {
         isEnabled = true; //  defino a variavel de pular desligada 
@@ -46,7 +56,9 @@ public class Player : MonoBehaviour
         gameObject.transform.localPosition = startPlayerPosition.localPosition; // mudo meu gameObject.transform.localPosition para startPlayerPosition.localPosition
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))// se apertar o espaço
@@ -55,6 +67,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Responsavel pela configuração do pulo do player
+    /// </summary>
     void Jump()
     {
         if (!isEnabled) return; // se tiver desligado volto ao começo do codigo
@@ -79,6 +94,9 @@ public class Player : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Responsavel por setar a colisão do player
+    /// </summary>
     private void OnCollisionEnter2D(Collision2D collision) //defino a classe de colisao 
     {
         if (!isEnabled) return;  // se tiver desligado volto ao começo do codigo

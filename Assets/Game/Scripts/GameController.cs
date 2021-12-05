@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// Responsavel pelo controle dos parametros do jogo
+/// </summary>
 public class GameController : MonoBehaviour
 {
     private bool isGamingRunning; // defino isgamingrunning como private e booleano
@@ -19,6 +23,10 @@ public class GameController : MonoBehaviour
     public Player player;//defino player como public 
     public LevelConfiguration[] levels; // defino levels como public
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         isGamingRunning = false;// jogo para falso
@@ -33,6 +41,9 @@ public class GameController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Responsavel por dar updates no game a cada frame
+    /// </summary>
     private void FixedUpdate() // é chamado 60 vezes per sec
     {
         if ( isGamingRunning == true)
@@ -45,6 +56,9 @@ public class GameController : MonoBehaviour
         CheckLevelUpdate();//inicio a função
     }
 
+    /// <summary>
+    /// Responsavel por checkar o score e caso sim, aumentar o level do game
+/// </summary>
     private void CheckLevelUpdate() // checando meu level 
     {
         if (currentLevelIndex >= levels.Length - 1 ) return; // se meu level for > ou igual
@@ -53,6 +67,10 @@ public class GameController : MonoBehaviour
 
         SetCurrentLevelConfiguration();//inicio a função
     }
+
+    /// <summary>
+    /// Responsavel por setar os parametros do level
+    /// </summary>
     private void SetCurrentLevelConfiguration() // definição do level
     {
         LevelConfiguration level = levels[currentLevelIndex]; // indexo meu level 
@@ -61,6 +79,9 @@ public class GameController : MonoBehaviour
         config.maxRangeObstacleGenerator = level.maxRangeObstacleGenerator; //defino o level max
     }
 
+    /// <summary>
+    /// Inicializa o game com level inicial
+    /// </summary>
     public void GameStart() // jogo iniciado
     {
         currentLevelIndex = 0; // jogado par 0
@@ -78,6 +99,9 @@ public class GameController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Responsavel pelo gameover do jogo
+    /// </summary>
     public void GameOver() // tela de fim 
     {
         isGamingRunning = false;//jogo para
@@ -90,6 +114,9 @@ public class GameController : MonoBehaviour
         gameOverUI.Show(); // inicia 
     }
 
+    /// <summary>
+    /// Responsavel pelo restart do game
+    /// </summary>
     public void RestartGame() // recomeço o jogo
     {
         gameOverUI.Hide(); // inicio gameOverUI
@@ -100,6 +127,9 @@ public class GameController : MonoBehaviour
         GameStart();//inicia o jogo
     }
 
+    /// <summary>
+    /// Responsavel pela cena de creditos do game
+    /// </summary>
     public void CreditScene() // inicio a cena de credito
     {
         isGamingRunning = false; //jogo para
@@ -113,6 +143,9 @@ public class GameController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Responsavel por fechar o jogo
+    /// </summary>
     public void ExitGame() //fim do jogo 
     {
 

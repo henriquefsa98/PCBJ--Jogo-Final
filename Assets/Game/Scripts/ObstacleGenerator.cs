@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Responsavel pelo gerador dos objetos (inimigos)
+/// </summary>
 public class ObstacleGenerator : MonoBehaviour
 {
     public GameObject[] obstacles;  // defino a classe obstacles como public 
@@ -10,6 +13,10 @@ public class ObstacleGenerator : MonoBehaviour
 
     public GameConfiguration config; // definindo a classe config como public 
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         InitObstacles(); // ligo obstaculos
@@ -18,16 +25,26 @@ public class ObstacleGenerator : MonoBehaviour
         gameObject.transform.localPosition = new Vector3 ( camWidth, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);    // defino posição da minha camera 
     }
 
+    
+    /// <summary>
+    /// Responsavel por iniciar a rotina do gerador
+    /// </summary>
     public void GenerateObstacles() // aqui eu spwano obstaculos de forma aleatoria
     {
         StartCoroutine(SpawnRandomObstacles()); //  spwano os obstaculos
     }
 
+    /// <summary>
+    /// Responsavel por parar a rotina do gerador
+    /// </summary>
     public void StopGenerator() // para obstaculos
     {
         StopAllCoroutines(); // paro tudo
     }
 
+    /// <summary>
+    /// Responsavel por reiniciar o gerador
+    /// </summary>
     public void ResetGenerator() // reseto  obstaculos
     {
         foreach (Obstacle obstacle in obstaclesToSpawn) // para cada obstaculo dentro do obstaculos spwanados 
@@ -36,6 +53,9 @@ public class ObstacleGenerator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Responsavel pela inicialização dos objetos
+    /// </summary>
     void InitObstacles()
     {
         int index = 0; // jogo meu index para 0
@@ -54,6 +74,9 @@ public class ObstacleGenerator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Responsavel por randomizar o spawn dos inimigos
+    /// </summary>
     IEnumerator SpawnRandomObstacles() 
     {
         yield return new WaitForSeconds(Random.Range(config.minRangeObstacleGenerator, config.maxRangeObstacleGenerator)); // Suspende a execução da co-rotina por um determinado período de segundos usando o tempo escalado.

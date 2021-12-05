@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe responsavel pela escala do background do jogo
+/// </summary>
 public class BackgroundScaler : MonoBehaviour  
 {
     private Vector3 startScale; // defino meu startScale como um vector3 eprivate
 
+    /// <summary>
+    /// Armazena as variaveis da tela
+    /// </summary>
     public enum ScaleType
     {
         x, // variavel x 
@@ -15,6 +21,10 @@ public class BackgroundScaler : MonoBehaviour
 
     public ScaleType scaleType = ScaleType.all; // defino scaleType como public e atribu all
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         startScale = transform.localScale; // Atribuo startScale  para uma mudação de local
@@ -22,6 +32,10 @@ public class BackgroundScaler : MonoBehaviour
         FitToScreen(); // executo  FitToScreen
     }
 
+
+    /// <summary>
+    /// Responsavel pelo ajuste da tela
+    /// </summary>    
     void FitToScreen()
     {
         float height = Camera.main.orthographicSize * 2;   // mudo minha altura 
